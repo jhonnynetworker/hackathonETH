@@ -3,9 +3,10 @@
 * Copyright 2013-2022 Start Bootstrap
 * Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-grayscale/blob/master/LICENSE)
 */
+
 //
 // Scripts
-// 
+//
 
 window.addEventListener('DOMContentLoaded', event => {
 
@@ -51,4 +52,38 @@ window.addEventListener('DOMContentLoaded', event => {
         });
     });
 
+});
+
+const ethereumButton = document.querySelector('.connect-metamask');
+let web3;
+let accounts;
+let accountElem = document.querySelector('#account-address');
+
+const metamaskButton = document.getElementById('metamask-button');
+metamaskButton.addEventListener('click', async () => {
+  if (typeof window.ethereum !== 'undefined') {
+    console.log('Metamask is installed!');
+    await connectMetamask();
+  } else {
+    console.log('MetaMask not found');
+  }
+});
+
+async function connectMetamask() {
+  accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+  account = accounts[0];
+  console.log('Your address:', account);
+  accountElem.innerHTML = account;
+
+  metamaskButton.textContent = 'Is logged';
+}
+
+  
+ethereumButton.addEventListener('click', async () => {
+    if (typeof window.ethereum !== 'undefined') {
+        console.log('MetaMask is installed!');
+        await connectMetamask();
+    } else {
+        console.log('MetaMask not found');
+    }
 });
