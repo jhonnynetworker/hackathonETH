@@ -603,7 +603,7 @@ progress {
 }
 
 .img-fluid {
-  max-width: 100%;
+  max-width: 93%;
   height: auto;
 }
 
@@ -11716,8 +11716,8 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 150px;
-  height: 150px;
+  width: 60vh;
+  height: 60vh;
   border-radius: 50%;
   background-color: transparent;
   overflow: hidden;
